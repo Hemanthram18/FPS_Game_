@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bi746xeyd1p84"]
+
+[ext_resource type="Script" uid="uid://fkiu3g66btrf" path="res://bOX_HEAD/mob_spwaner.gd" id="1_ydmpy"]
+[ext_resource type="PackedScene" uid="uid://cl6srlhc4pwe" path="res://bOX_HEAD/zombie_1_mob.tscn" id="2_tibny"]
+
+[node name="Mob_Spwaner" type="Node3D" unique_id=695332675]
+script = ExtResource("1_ydmpy")
+mob_to_spawn = ExtResource("2_tibny")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1718081719]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="." unique_id=855932879]
+unique_name_in_owner = true
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://d2tu7ucljf33w"]
+
+[ext_resource type="PackedScene" uid="uid://bbcv6iu68ed2f" path="res://bOX_HEAD/zombie_1.glb" id="1_8o8c8"]
+[ext_resource type="Script" uid="uid://bleaig7go2n36" path="res://bOX_HEAD/zombie_1_model.gd" id="2_ewkm7"]
+
+[node name="zombie_1_model" unique_id=120499524 instance=ExtResource("1_8o8c8")]
+script = ExtResource("2_ewkm7")
+
+[node name="Armature" parent="." index="0" unique_id=1778806533]
+transform = Transform3D(-2.5549672, 0, -2.2336232e-07, 0, 2.5549672, 0, 2.2336232e-07, 0, -2.5549672, 0, 2.3364766, 0)
+
+[node name="Skeleton3D" parent="Armature" index="0" unique_id=1416361890]
+bones/2/rotation = Quaternion(0.551937, -4.5199947e-08, 1.2068539e-07, 0.8338859)
+bones/3/rotation = Quaternion(0.8338859, -3.7355424e-08, 1.7111998e-07, 0.55193686)
+bones/5/rotation = Quaternion(-0.66895366, 0.13610013, 0.14568569, 0.716068)
+bones/6/rotation = Quaternion(0.51492614, -0.4846144, -0.5149261, -0.48461434)
+bones/7/rotation = Quaternion(-0.67158973, 0.13663651, 0.14518282, 0.71359634)
+
+[node name="Bone_002" parent="Armature/Skeleton3D" index="1" unique_id=1543299050]
+transform = Transform3D(1, -3.1705213e-08, 1.5099582e-07, 1.5138062e-07, 0.3907312, -0.9205048, -2.981396e-08, 0.9205048, 0.3907312, 0.7105201, 1.3313122, 0.07974118)
+
+[node name="Bone_003" parent="Armature/Skeleton3D" index="2" unique_id=946894139]
+transform = Transform3D(1, -3.1729726e-08, 1.5099576e-07, 1.2659453e-07, -0.39073145, -0.92050475, 8.820615e-08, 0.92050475, -0.39073145, -0.73253614, 1.3313122, 0.07974118)
+
+[node name="Bone_006" parent="Armature/Skeleton3D" index="4" unique_id=1218268774]
+transform = Transform3D(-1.6763806e-08, -1.527369e-07, 0.99999994, -0.3907312, -0.9205046, -1.2665987e-07, 0.9205048, -0.39073133, 1.6064059e-08, 0.5433677, -0.037010424, 3.246227e-08)
+
+[node name="Bone_007" parent="Armature/Skeleton3D" index="5" unique_id=1457741285]
+transform = Transform3D(1.0244548e-07, 1.3038516e-07, -0.9999998, -0.3907312, -0.9205046, -1.7508864e-07, -0.92050457, 0.3907312, -5.1927017e-08, -0.52420014, -0.03182256, -1.4072075e-14)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1238666351]
+autoplay = &"ArmatureAction"

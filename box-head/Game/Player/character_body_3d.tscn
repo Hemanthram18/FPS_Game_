@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://hg4468caphma"]
+
+[ext_resource type="Script" uid="uid://b26ven2ryay8n" path="res://Game/Player/character_body_3d.gd" id="1_bc1x2"]
+[ext_resource type="Texture2D" uid="uid://cbxk5hpjfmjis" path="res://bOX_HEAD/icons8-crosshair-32.png" id="2_awqv2"]
+[ext_resource type="PackedScene" uid="uid://cgy2xq1r0qftc" path="res://pistol.glb" id="2_wwmpq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3426b"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1704277577]
+script = ExtResource("1_bc1x2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2054602941]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_3426b")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1125575935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="pistol" parent="Camera3D" unique_id=1665874281 instance=ExtResource("2_wwmpq")]
+transform = Transform3D(-0.02051247, 0, 0.2992979, 0, 0.29999998, 0, -0.2992979, 0, -0.02051247, 0.5859126, -0.5164288, -0.44831264)
+
+[node name="Marker3D" type="Marker3D" parent="Camera3D" unique_id=1612721720]
+unique_name_in_owner = true
+transform = Transform3D(-0.29281846, 0.00012863951, -0.065248, -0.004979451, 0.29908043, 0.0229363, 0.065057874, 0.02347023, -0.29191875, 0.57220155, -0.2635579, -0.70015097)
+
+[node name="Crosshair" type="TextureRect" parent="." unique_id=1694939622]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_awqv2")
+
+[node name="Timer" type="Timer" parent="." unique_id=1995973284]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="HP" type="Label" parent="." unique_id=416760702]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "HP : 0"

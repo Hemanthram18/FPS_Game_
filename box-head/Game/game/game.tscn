@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://denld24rybk38"]
+
+[ext_resource type="Texture2D" uid="uid://yw74ok5uyeak" path="res://checkboard.png" id="1_8wkul"]
+[ext_resource type="Script" uid="uid://2rishog2m0qy" path="res://Game/game/game.gd" id="1_hgj2l"]
+[ext_resource type="PackedScene" uid="uid://hg4468caphma" path="res://Game/Player/character_body_3d.tscn" id="2_ueg5c"]
+[ext_resource type="PackedScene" uid="uid://bi746xeyd1p84" path="res://bOX_HEAD/mob_spwaner.tscn" id="4_hgj2l"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8wkul"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ueg5c"]
+sky_material = SubResource("ProceduralSkyMaterial_8wkul")
+
+[sub_resource type="Environment" id="Environment_gw116"]
+background_mode = 2
+sky = SubResource("Sky_ueg5c")
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3426b"]
+albedo_color = Color(0.9471994, 0.9471994, 0.9471994, 1)
+albedo_texture = ExtResource("1_8wkul")
+uv1_scale = Vector3(20, 20, 20)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_3426b"]
+
+[node name="Game" type="Node3D" unique_id=1580034894 groups=["player"]]
+script = ExtResource("1_hgj2l")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=303934156]
+environment = SubResource("Environment_gw116")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=607778188]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." unique_id=1704277577 groups=["player"] instance=ExtResource("2_ueg5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.018311977, 0)
+
+[node name="Ground" type="Node3D" parent="." unique_id=1048781569]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Ground" unique_id=1688061024]
+transform = Transform3D(1, 0, 0, 0, 0.20789248, 0, 0, 0, 1, 0, -1.1421921, 0)
+use_collision = true
+size = Vector3(60, 10, 60)
+material = SubResource("StandardMaterial3D_3426b")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Ground" unique_id=1390596301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.300251, 6, -16.950752)
+size = Vector3(1, 14, 26)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Ground" unique_id=1894591059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.699749, 6, -16.950752)
+size = Vector3(1, 14, 26)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Ground" unique_id=362621590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.699749, 6, 16.049248)
+size = Vector3(1, 14, 26)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Ground" unique_id=2005230054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.300251, 6, 16.650566)
+size = Vector3(1, 14, 25)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Ground" unique_id=735142887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.300251, 6, 16.650566)
+size = Vector3(1, 14, 25)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Ground" unique_id=982071112]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.300251, 6, 29.650566)
+size = Vector3(1, 14, 25)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Ground" unique_id=131000826]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.437853, 6, -30.349434)
+size = Vector3(1, 14, 25)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Ground" unique_id=1966306775]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -17.562147, 6, -30.349434)
+size = Vector3(1, 14, 25)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Ground" unique_id=1987977235]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -17.699749, 6, 29.650566)
+size = Vector3(1, 14, 25)
+
+[node name="Mob_Spawner" type="Node3D" parent="." unique_id=124384464]
+
+[node name="Mob_Spwaner2" parent="Mob_Spawner" unique_id=695332675 instance=ExtResource("4_hgj2l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -0.513, -2)
+
+[node name="Score" type="Label" parent="." unique_id=561470081]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Score : 0"
+
+[node name="Area3D" type="Area3D" parent="." unique_id=827157286]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=952020288]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10, -6, -2)
+shape = SubResource("WorldBoundaryShape3D_3426b")
+
+[connection signal="mob_spawned" from="Mob_Spawner/Mob_Spwaner2" to="." method="_on_mob_spwaner_2_mob_spawned"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

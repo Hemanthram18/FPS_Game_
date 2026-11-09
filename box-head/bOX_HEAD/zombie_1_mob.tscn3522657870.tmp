@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cl6srlhc4pwe"]
+
+[ext_resource type="PackedScene" uid="uid://d2tu7ucljf33w" path="res://bOX_HEAD/zombie_1_model.tscn" id="1_g8xxb"]
+[ext_resource type="Script" uid="uid://bp206edfi8cbe" path="res://bOX_HEAD/zombie_1_mob.gd" id="1_kgmbx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rpg2e"]
+size = Vector3(1.6418457, 2.626831, 1)
+
+[node name="zombie_mob" type="RigidBody3D" unique_id=406169646]
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_kgmbx")
+
+[node name="zombie_1_model" parent="." unique_id=120499524 instance=ExtResource("1_g8xxb")]
+unique_name_in_owner = true
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1135020199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01574707, 1.8134155, 0)
+shape = SubResource("BoxShape3D_rpg2e")
+
+[node name="Timer" type="Timer" parent="." unique_id=640896482]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
